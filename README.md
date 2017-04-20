@@ -82,7 +82,7 @@ console.log(13 >= 13);
 console.log(14 >= 13);
 ```
 
-That works - email that over to your boss and head out to lunch! When you get back however, your boss will probably have emailed you back with some "constructive criticism." You boss was hoping to have it give a little more feedback, maybe with some text that displays in the console that lets gamers know if they play this or not. It was suggested that the program have three outputs: if the gamer is under 13 we should tell them to go away, else if the gamer is 13 we should congratulate them for finally being old enough to play, else we should invite the game into the game!
+That works - email that over to your boss and head out to lunch! When you get back however, your boss will probably have emailed you back with some "constructive criticism." Your boss was hoping to have it give a little more feedback, maybe with some text that displays in the console that lets gamers know if they can play or not. It was suggested that the program have three outputs: if the gamer is under 13 we should tell them to go away, else if the gamer is 13 we should congratulate them for finally being old enough to play, else we should invite the game into the game!
 
 Luckily JavaScript has just the thing! Remember those `if` and `else` keywords? They were created to do *conditionals* - blocks of code that run when something is true or not. Let's start with a simple example:
 
@@ -252,7 +252,7 @@ Hm, that's not really right. We need to count the number of coins, keep track of
 ``` JavaScript
 function coins(amount, value) {
   var count = 0; // This will keep track of how many coins
-  var tally = 0; // This keeps track of the value of those coins
+  var tally = 0; // This keeps track of the value of the counted coins
 
   while (value <= amount) {
     value = value + value;
@@ -267,8 +267,8 @@ Now we need to increase "count" and "tally" every time we go through the loop! A
 ``` JavaScript
 // DO NOT RUN THIS
 function coins(amount, value) {
-  var count = 0; // This will keep track of how many coins
-  var tally = 0; // This keeps track of the value of the counted coins
+  var count = 0;
+  var tally = 0;
 
   while (value <= amount) {
     count = count + 1;
@@ -283,8 +283,8 @@ If you were to run the above code, you'd get stuck. This is an example of an inf
 
 ``` JavaScript
 function coins(amount, value) {
-  var count = 0; // This will keep track of how many coins
-  var tally = 0; // This keeps track of the value of the counted coins
+  var count = 0;
+  var tally = 0;
 
   while (tally + value <= amount) {
     count = count + 1;
@@ -336,8 +336,8 @@ So using this tool, we can change the code to:
 
 ``` JavaScript
 function coins(amount, value) {
-  var count = 0; // This will keep track of how many coins
-  var tally = 0; // This keeps track of the value of the counted coins
+  var count = 0;
+  var tally = 0;
 
   while (tally + value <= amount) {
     count += 1;
@@ -351,3 +351,107 @@ coins(.50, .25);
 ```
 
 All done!
+
+### Count By
+
+__User Story:__ Your kid is learning multiplication (and maybe even coding!) so you thought it would be nice to give the little rugrat a program that lets them input an increment amount and a number of multiples to go up to. It's going to keep looping through multiples until it's looped that set amount of times - each time printing the result.
+
+First thing first, we need to talk about *string concatenation*. Don't worry, it's just a fancy phrase for joining strings. In JavaScript, we can just use the `+` operator for this:
+
+``` javascript
+test = "Hello" + " " + "world!";
+console.log(test);
+
+test = 42 + " is the answer";
+console.log(test);
+
+test = 4 + "2";
+console.log(test);
+
+test = 4 + 2;
+console.log(test);
+```
+
+Woo! We're all set:
+
+``` javascript
+function countBy(incr, num) {
+  var count = 0;
+
+  while (count < num) {
+    console.log(incr + " x " + count + " = " + count * incr);
+    count += 1;
+  }
+}
+```
+
+This is a really common thing to do in programming though: count one by one until you hit a number, doing something each *iteration*. It's so common that there's a special kind of loop for this! These are basically the same:
+
+``` javascript
+
+var index1 = 0;
+while (index1 < 5) {
+  console.log(index1);
+  index1 += 1;
+}
+
+for (var index2 = 0; index2 < 5; index1 += 1) {
+  console.log(index1);
+}
+```
+
+A `for` loop takes three sections separated by semicolons followed by a block of code. The three sections in the above example are:
+
+* `var index2 = 0`: this is code to be run before the loop starts
+* `index2 < 5`: this is the conditional to be checked before each round
+* `index1 += 1`: this is code to be run after each round
+
+Let's break down another example:
+
+``` javascript
+for (var i = 2; i <= 6; i += 2) {
+  console.log(i);
+}
+```
+
+* We start the loop
+* We initialize a variable named "i" and set it to 2
+* We check if `2 <= 6` - yep!
+* We print i (which is 2)
+* We increment i by 2 (so i is now 4)
+* We check if `4 <= 6` - yep!
+* We print i (which is 4)
+* We increment i by 2 (so i is now 6)
+* We check if `6 <= 6` - yep!
+* We print i (which is 6)
+* We increment i by 2 (so i is now 8)
+* We check if `8 <= 6` - nope!
+* The loop ends
+
+Cool beans! Lets rewrite the `while` loop into a `for` loop for our little kiddo:
+
+``` javascript
+function countBy(incr, num) {
+  for (var count = 0; count < num; count += 1) {
+    console.log(incr + " x " + count + " = " + count * incr);
+  }
+}
+```
+
+I know I just taught you `+=` but since incrementing a number by 1 is so common, there's a shorter way for that too!
+
+``` javascript
+x = x + 1
+x += 1
+x++
+```
+
+So our code can be shortened to:
+
+``` javascript
+function countBy(incr, num) {
+  for (var count = 0; count < num; count++) {
+    console.log(incr + " x " + count + " = " + count * incr);
+  }
+}
+```
