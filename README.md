@@ -116,13 +116,18 @@ This works pretty good now! Your boss is very impressed. Bosses are never satisf
 * Those numbers are going to get used a lot in the game. It would be super cool if you could update the number in one place and it updated the whole code base.
 * Speaking of the whole code base, it would be nice if your company could use this code in several games without having to rewrite it over and over again.
 
-Just like in algebra (think `x + 2 = 4`), JavaScript has a way where you can use symbols to represent values using *variables* and the special `var` keyword:
+Just like in algebra (think `x + 2 = 4`), JavaScript has a way where you can use symbols to represent values using *variables*, the special `var` keyword, and the special *assignment* operator `=`:
 
 ``` javascript
 var x = 2;
 var y = 4;
-console.log(4 * 2);
+console.log(x * y);
 // 8
+
+// To re-assign a variable, you don't need to use the var keyword
+y = 3
+console.log(x * y);
+// 6
 ```
 
 So we'll just replace the numbers with variables and that way we can keep referencing the variable throughout our code. Variable names can use letters, numbers, and underscores and shouldn't be wrapped in quotes (or JavaScript will think it's a string).
@@ -179,3 +184,170 @@ oldEnough(25, 18);
 ```
 
 And with that you can call it a day! Heck, I hear your boss is even thinking of promoting you!
+
+### Coins
+
+__User Story:__ With all of that money you made in the gaming industry, you decided you would go off and start your own company. What better industry to go to than finance? Part of the software requires a function that takes a dollar amount and a currency value before returning how many of that currency is within the dollar amount. For instance, if you give the function an amount of $1 and a value of $0.25 the function should return 4 - there are four quarters in a dollar. We don't want to go over though! If you give the function $1.24 and $0.25, it should still return 4 (there are four quarters in $1.24 and not five).
+
+Whelp, we pretty much know how to start! We need a function and we need to to accept two parameters: "amount" and "value". We're going to call the function "coins" because we're using it to determine how many of a certain coin we need.
+
+``` JavaScript
+function coins(amount, value) {
+  return // We need something here, right?
+}
+```
+
+Well, we could try math:
+
+``` JavaScript
+function coins(amount, value) {
+  return amount / value;
+}
+
+coins(1.24/.25); // 4.96
+```
+
+No, we don't want fractions. We can't have .96 of a quarter! Now is a good time to talk about *loops*: loops are blocks of code that get run over and over until they're told to stop. This is that `while` keyword that I was mentioning before. Let's take a quick detour to explain `while` loops before finishing our coins function.
+
+``` JavaScript
+var count = 0;
+while (count < 3) {
+  count = count + 1;
+  console.log(count);
+}
+```
+
+Let's talk out that's going on in the above example:
+
+* We create a variable called "count" and set it to 0
+* We start the loop
+* We say that while "count" is less than 3, run the following chunk of code
+* In the block, we increase "count" by 1
+* Then we print "count" (which is now 1)
+* When we reach the end of the block, we loop back to the top of the loop
+* We check if 1 is less than 3 - yep!
+* We increase "count" by 1
+* Then we print "count" (which is now 2)
+* When we reach the end of the block, we loop back to the top of the loop
+* We check if 2 is less than 3 - yep!
+* We increase "count" by 1
+* Then we print "count" (which is now 3)
+* When we reach the end of the block, we loop back to the top of the loop
+* We check if 3 is less than 3 - nope!
+* The loop ends
+
+Loops are what make programming so great! Computers can just keep looping over and over without a care in the world. What would be really tedious for people is the norm for computers. Let's see how this might work with out coin program:
+
+``` JavaScript
+function coins(amount, value) {
+  while (value <= amount) {
+    value = value + value;
+  }
+  return value;
+}
+```
+
+Hm, that's not really right. We need to count the number of coins, keep track of how much those coins equal, and not change "amount" or "value". Whelp, it sounds like we need more variables!
+
+``` JavaScript
+function coins(amount, value) {
+  var count = 0; // This will keep track of how many coins
+  var tally = 0; // This keeps track of the value of those coins
+
+  while (value <= amount) {
+    value = value + value;
+  }
+
+  return value;
+}
+```
+
+Now we need to increase "count" and "tally" every time we go through the loop! Also, let's start returning count because that's what we're trying to figure out with this function.
+
+``` JavaScript
+// DO NOT RUN THIS
+function coins(amount, value) {
+  var count = 0; // This will keep track of how many coins
+  var tally = 0; // This keeps track of the value of the counted coins
+
+  while (value <= amount) {
+    count = count + 1;
+    tally = tally + value;
+  }
+
+  return count;
+}
+```
+
+If you were to run the above code, you'd get stuck. This is an example of an infinite loop - a loop that never stops because the *conditional* never evaluates to `false`. That's because "value" and "amount" never change so "value" will always be less than "amount". We need to make one last change to make this function work:
+
+``` JavaScript
+function coins(amount, value) {
+  var count = 0; // This will keep track of how many coins
+  var tally = 0; // This keeps track of the value of the counted coins
+
+  while (tally + value <= amount) {
+    count = count + 1;
+    tally = tally + value;
+  }
+
+  return count;
+}
+
+coins(.50, .25);
+```
+
+Let's go over what's happening in the function when we call it with an "amount" of $0.50 and a "value" of $0.25:
+
+* We call the coins function with .50 and .25 as parameters
+* amount = .50; value = .25
+* We create "count" and "tally" setting them to 0
+* amount = .50; value = .25; count = 0; tally = 0
+* We start the loop
+* We check if `0 + .25 <= .50` - yep!
+* We increment count by 1 and tally by .25
+* amount = .50; value = .25; count = 1; tally = .25
+* We go to the top of the loop
+* We check if .`25 + .25 <= .50` - yep!
+* We increment count by 1 and tally by .25
+* amount = .50; value = .25; count = 2; tally = .50
+* We go to the top of the loop
+* We check if `.50 + .25 <= .50` - nope!
+* We end the loop
+* We return count (which is now 2)
+
+Just to tidy things up, we're going to make a small adjustment. JavaScript gives some tools we can make use of right now: `+=`, `-=`, `*=`, and `/=`. These might seem confusing, but they're pretty simple.
+
+``` javascript
+x = x + y
+x += y
+
+x = x - y
+x -= y
+
+x = x * y
+x *= y
+
+x = x / y
+x /= y
+```
+
+So using this tool, we can change the code to:
+
+``` JavaScript
+function coins(amount, value) {
+  var count = 0; // This will keep track of how many coins
+  var tally = 0; // This keeps track of the value of the counted coins
+
+  while (tally + value <= amount) {
+    count += 1;
+    tally += value;
+  }
+
+  return count;
+}
+
+coins(.50, .25);
+```
+
+All done!
