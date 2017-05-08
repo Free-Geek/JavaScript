@@ -1,5 +1,5 @@
 function countBy(incr, num) {
-  for (var index = 1; index <= num; index++) {
-    console.log(incr + ' x ' + index + ' = ' + index * incr);
+  for (var count = 0; count < num; count++) {
+    console.log(incr + " x " + count + " = " + count * incr);
   }
 }

@@ -25,9 +25,11 @@
 
 * [All the Code](#all-the-code)
 
+* [Additional Resources](#additional-resources)
+
 ## Notes
 
-* We'll be using an free, online tool to run our code for us called [repl.it](https://repl.it/languages/javascript). On the left is a place to write your code and on the right is the *console* which will show us the output of our programs.
+* We'll be using a free, online tool called [repl.it](https://repl.it/languages/javascript) to run our code. On the left is a place to write code and on the right is the __*console*__ which will show us the output of our programs.
 * Something we'll be using pretty regularly is `console.log()` - it looks pretty fancy, but all it does is print what's put in the parenthesis to the console.
 * JavaScript is case sensitive and cares about punctuation. `heyThere`, `HeyThere`, `hey_there`, and `Hey_There` are all different to JavaScript.
 * Comments are great to add notes to code. You can tell other programmers how to use your programs or even remind yourself what you were thinking when your wrote the code initially. To add a comment, you'll start a line with `//` and everything after that on the same line with be a comment.
@@ -38,7 +40,7 @@
 console.log("Hello World!");
 ```
 
-* We'll be using three *data types* in this course: numbers, strings, and booleans. You'll also see a fourth type called `undefined` but you can ignore that as we're not going to be talking about it today.
+* We'll be using three __*data types*__ in this course: numbers, strings, and booleans. You'll also see a fourth type called `undefined` but you can ignore that as we're not going to be talking about it today.
 
 ``` javascript
 // Numbers are pretty obvious
@@ -62,7 +64,7 @@ false
 undefined
 ```
 
-* We'll also be using a number of keywords that are reserved by JavaScript and serve special purposes. The ones we'll be using are: `function`, `var`, `while`, `if`, `else`, `for`, and `return`. JavaScript expects you to use these a certain way - if you don't JavaScript *throws an error* which means it complains about your code.
+* We'll also be using a number of keywords that are reserved by JavaScript and serve special purposes. The ones we'll be using are: `function`, `var`, `while`, `if`, `else`, `for`, and `return`. JavaScript expects you to use these a certain way - if you don't JavaScript __*throws an error*__ which means it complains about how you wrote your code.
 
 Cool, let's start coding!
 
@@ -72,7 +74,7 @@ __User Story:__ Your boss comes into your office and tells you that the video ga
 
 ### Operators
 
-Where do you start? Well, math is an important part of programming so JavaScript gives you most of the standard tools for dealing with numbers in the form of *operators* - symbols that take one or more inputs and returns an output.
+Where do you start? Well, math is an important part of programming so JavaScript gives you most of the standard tools for dealing with numbers in the form of __*operators*__ - symbols that take one or more inputs and returns an output.
 
 ``` JavaScript
 // These return numbers
@@ -82,12 +84,12 @@ Where do you start? Well, math is an important part of programming so JavaScript
 4 / 2 // 2 - Division
 
 // These return booleans
-4 > 2  // True  - Greater Than
-4 < 4  // False - Less Than
-4 >= 8 // False - Greater Than or Equal
-4 <= 4 // True  - Less Than or Equal
-4 == 4 // True  - Equal
-4 != 2 // True  - Not Equal
+4 > 2  // true  - Greater Than
+4 < 4  // false - Less Than
+4 >= 8 // false - Greater Than or Equal
+4 <= 4 // true  - Less Than or Equal
+4 == 4 // true  - Equal
+4 != 2 // true  - Not Equal
 ```
 
 __Warning:__ `==` is equals, not `=`. You need both equal signs!
@@ -100,11 +102,11 @@ console.log(13 >= 13);
 console.log(14 >= 13);
 ```
 
-That works - email that over to your boss and head out to lunch! When you get back however, your boss will probably have emailed you back with some "constructive criticism." Your boss was hoping to have it give a little more feedback, maybe with some text that displays in the console that lets gamers know if they can play or not. It was suggested that the program have three outputs: if the gamer is under 13 we should tell them to go away, else if the gamer is 13 we should congratulate them for finally being old enough to play, else we should invite the game into the game!
+That works - email that over to your boss and head out to lunch! When you get back however, your boss will probably have emailed you with some "constructive criticism." Your boss was hoping to have the program give users a little more feedback, maybe with some text that displays in the console to let gamers know if they can play or not. It was suggested that the program have three outputs: if the gamer is under 13 we should tell them to go away, else if the gamer is 13 we should congratulate them for finally being old enough to play, else we should invite the player into the game!
 
 ### if, else if, and else
 
-Luckily JavaScript has just the thing! Remember those `if` and `else` keywords? They were created to do *conditionals* - blocks of code that run when something is true or not. Let's start with a simple example:
+Luckily JavaScript has just the thing! Remember those `if` and `else` keywords? They were created to do __*conditionals*__ - blocks of code that run when something is true or not. Let's start with a simple example:
 
 ``` JavaScript
 if (12 < 13) {
@@ -138,7 +140,7 @@ This works pretty good now! Your boss is very impressed. Bosses are never satisf
 
 ### Variables
 
-Just like in algebra (think `x + 2 = 4`), JavaScript has a way where you can use symbols to represent values using *variables*, the special `var` keyword, and the special *assignment* operator `=`:
+Just like in algebra (think `x + 2 = 4`), JavaScript has a way where you can use symbols to represent values using __*variables*__, the special `var` keyword, and the special __*assignment*__ operator `=`:
 
 ``` javascript
 var x = 2;
@@ -152,7 +154,7 @@ console.log(x * y);
 // 6
 ```
 
-So we'll just replace the numbers with variables and that way we can keep referencing the variable throughout our code. Variable names can use letters, numbers, and underscores and shouldn't be wrapped in quotes (or JavaScript will think it's a string).
+So we'll just replace the numbers with variables and that way we can keep referencing the variable throughout our code. Variable names can contain letters, numbers, underscores, and dollar signs and shouldn't be wrapped in quotes (or JavaScript will think it's a string).
 
 ``` JavaScript
 var age = 12;
@@ -169,7 +171,7 @@ if (age < required) {
 
 ### Functions
 
-Lastly, we just need to wrap the code in a *function* so it can be reused. A function is just a block of reusable code that takes *parameters* as inputs (just a fancy name for variables really) and *returns* a value. You can give a function a name so it's easy to *call* - or invoke - later in your code by writing the function name followed by parenthesis containing the parameters (if there are any). That's a lot of information, so lets take a look at a super simple function:
+Lastly, we just need to wrap the code in a __*function*__ so it can be reused. A function is just a block of reusable code that takes __*parameters*__ as inputs (just a fancy name for variables really) and __*returns*__ a value. You can give a function a name so it's easy to __*call*__ - or invoke - later in your code by writing the function name followed by parenthesis containing the parameters (if there are any). That's a lot of information, so lets take a look at a super simple function:
 
 ``` JavaScript
 function add(x, y) {
@@ -230,12 +232,12 @@ function coins(amount, value) {
   return amount / value;
 }
 
-coins(1.24/.25); // 4.96
+coins(1.24, .25); // 4.96
 ```
 
 ### while
 
-No, we don't want fractions. We can't have .96 of a quarter! Now is a good time to talk about *loops*: loops are blocks of code that get run over and over until they're told to stop. This is that `while` keyword that I was mentioning before. Let's take a quick detour to explain `while` loops before finishing our coins function.
+No, we don't want fractions. We can't have .96 of a quarter! Now is a good time to talk about __*loops*__: loops are blocks of code that get run over and over until they're told to stop. This is that `while` keyword that I was mentioning before. Let's take a quick detour to explain `while` loops before finishing our coins function.
 
 ``` JavaScript
 var count = 0;
@@ -309,7 +311,7 @@ function coins(amount, value) {
 }
 ```
 
-If you were to run the above code, you'd get stuck. This is an example of an infinite loop - a loop that never stops because the *conditional* never evaluates to `false`. That's because "value" and "amount" never change so "value" will always be less than "amount". We need to make one last change to make this function work:
+If you were to run the above code, you'd get stuck. This is an example of an __*infinite loop*__ - a loop that never stops because the conditional never evaluates to `false`. That's because "value" and "amount" never change so "value" will always be less than "amount". We need to make one last change to make this function work:
 
 ``` JavaScript
 function coins(amount, value) {
@@ -348,9 +350,13 @@ Let's go over what's happening in the function when we call it with an "amount" 
 
 ### Assignment Operators
 
-Just to tidy things up, we're going to make a small adjustment. JavaScript gives some tools we can make use of right now: `+=`, `-=`, `*=`, and `/=`. These might seem confusing, but they're pretty simple.
+Just to tidy things up, we're going to make a small adjustment. JavaScript gives some tools we can make use of right now: `+=`, `-=`, `*=`, and `/=`. These might seem confusing at first, but they're pretty simple:
 
 ``` javascript
+var x = 0;
+x += 5;
+console.log(x) // 5
+
 x = x + y
 x += y
 
@@ -366,7 +372,7 @@ x /= y
 
 ### Coins, Completed
 
-So using this tool, we can change the code to:
+So using these new tools, we can change the code to:
 
 ``` JavaScript
 function coins(amount, value) {
@@ -381,21 +387,21 @@ function coins(amount, value) {
   return count;
 }
 
-coins(.50, .25);
+coins(.50, .25); // 2
 ```
 
 All done!
 
 ## Count By
 
-__User Story:__ Your kid is learning multiplication (and maybe even coding!) so you thought it would be nice to give the little rugrat a program that lets them input an increment amount and a number of multiples to go up to. It's going to keep looping through multiples until it's looped that set amount of times - each time printing the result.
+__User Story:__ Your kid is learning multiplication (and maybe even coding!) so you thought it would be nice to give the little rugrat a program that lets them input an increment amount and a number of multiples to go up to. It's going to keep looping through multiples until it has looped that number of times - each time printing the result.
 
 ### String Concatenation
 
-First thing first, we need to talk about *string concatenation*. Don't worry, it's just a fancy phrase for joining strings. In JavaScript, we can just use the `+` operator for this:
+First thing first, we need to talk about __*string concatenation*__. Don't worry, it's just a fancy phrase for joining strings. In JavaScript, we can just use the `+` operator for this:
 
 ``` javascript
-test = "Hello" + " " + "world!";
+var test = "Hello" + " " + "world!";
 console.log(test);
 // "Hello world!"
 
@@ -427,7 +433,7 @@ function countBy(incr, num) {
 
 ### for
 
-This is a really common thing to do in programming though: count one by one until you hit a number, doing something each *iteration*. It's so common that there's a special kind of loop for this! These are basically the same:
+This is a really common thing to do in programming though: count one by one until you hit a number, doing something each __*iteration*__. It's so common that there's a special kind of loop for this! These are basically the same:
 
 ``` javascript
 
@@ -437,7 +443,7 @@ while (index1 < 5) {
   index1 += 1;
 }
 
-for (var index2 = 0; index2 < 5; index1 += 1) {
+for (var index2 = 0; index2 < 5; index2 += 1) {
   console.log(index1);
 }
 ```
@@ -459,14 +465,14 @@ for (var i = 2; i <= 6; i += 2) {
 * We start the loop
 * We initialize a variable named "i" and set it to 2
 * We check if `2 <= 6` - yep!
-* We print i (which is 2)
-* We increment i by 2 (so i is now 4)
+* We print "i" (which is 2)
+* We increment "i" by 2 (so "i" is now 4)
 * We check if `4 <= 6` - yep!
-* We print i (which is 4)
-* We increment i by 2 (so i is now 6)
+* We print "i" (which is 4)
+* We increment "i" by 2 (so "i" is now 6)
 * We check if `6 <= 6` - yep!
-* We print i (which is 6)
-* We increment i by 2 (so i is now 8)
+* We print "i" (which is 6)
+* We increment "i" by 2 (so "i" is now 8)
 * We check if `8 <= 6` - nope!
 * The loop ends
 
@@ -507,21 +513,39 @@ function countBy(incr, num) {
 Now we have three pretty handy functions:
 
 ``` javascript
+// Function oldEnough
+// Determines if a user is old enough to play game
+// Prints responses based on age
+// Takes two arguments:
+// age [number]: the age of the user
+// required [number]: the age required to play game
 function oldEnough(age, required){
   if (age < required) {
     console.log('Hey, get out of here!');
   } else if (age == required) {
+    // Below is an example of escaping a special character
     console.log('You\'re old enough for this game now!');
   } else {
     console.log('Come on in!')
   }
 }
 
+
+
+// Function coins
+// Counts how many of a certain coin is in a dollar amount
+// Takes two arguments:
+// amount [number]: the amount we're calculating for
+// value [number]: the value of the coin as a decimal
 function coins(amount, value) {
+  // count keeps track of how many coins we've counted
+  // tally keeps track of the value of the counted coins
   var count = 0;
   var tally = 0;
 
+  // Check to see if adding a coin would put us over the amount...
   while (tally + value <= amount) {
+    // ...if not, add a coin to count and tally
     count += 1;
     tally += value;
   }
@@ -529,9 +553,23 @@ function coins(amount, value) {
   return count;
 }
 
+
+
+// Function countBy
+// Prints a multiplication chart for a given number
+// incr [number]: for increment, the number we're making the chart for
+// num [number]: for number, the number of rows we print
 function countBy(incr, num) {
-  for (var index = 1; index <= num; index++) {
-    console.log(incr + ' x ' + index + ' = ' + index * incr);
+  for (var count = 0; count < num; count++) {
+    // Example print format: "2 x 4 = 8"
+    console.log(incr + " x " + count + " = " + count * incr);
   }
 }
 ```
+
+## Additional Resources
+
+* [Free Code Camp](https://www.freecodecamp.com/) is a free, online program for learning HTML, CSS, and JavaScript (the three technologies you need to know to make custom websites). There's a group in town that meets every other week in Portland: [FCC Meetup Portland](https://www.meetup.com/Free-Code-Camp-Portland/)
+* [Codecademy](https://www.codecademy.com/learn) has free programming courses in several programming languages - including a bunch of courses in JavaScript.
+* [Khan Academy](https://www.khanacademy.org/computing/computer-programming) has a ton of free resources to help you learn to be a programmer.
+* [Code Wars](https://www.codewars.com) is a great way to increase your JavaScript skills once you've completed a more in depth JavaScript course. You learn to program by solving programming puzzles and they have puzzles for all levels of programmers!
