@@ -104,6 +104,12 @@ console.log(14 >= 13);
 
 That works - email that over to your boss and head out to lunch! When you get back however, your boss will probably have emailed you with some "constructive criticism." Your boss was hoping to have the program give users a little more feedback, maybe with some text that displays in the console to let gamers know if they can play or not. It was suggested that the program have three outputs: if the gamer is under 13 we should tell them to go away, else if the gamer is 13 we should congratulate them for finally being old enough to play, else we should invite the player into the game!
 
+#### TODO
+
+* Try using an operator with two numbers
+* Try comparing two strings
+* Check if 'A' equals 'a'
+
 ### if, else if, and else
 
 Luckily JavaScript has just the thing! Remember those `if` and `else` keywords? They were created to do __*conditionals*__ - blocks of code that run when something is true or not. Let's start with a simple example:
@@ -138,6 +144,11 @@ This works pretty good now! Your boss is very impressed. Bosses are never satisf
 * Those numbers are going to get used a lot in the game. It would be super cool if you could update the number in one place and it updated the whole code base.
 * Speaking of the whole code base, it would be nice if your company could use this code in several games without having to rewrite it over and over again.
 
+#### TODO
+
+* Write an `If...Else` statement where the first block of code runs
+* Write an `If...Else If...Else` statement where the second block of code runs
+
 ### Variables
 
 Just like in algebra (think `x + 2 = 4`), JavaScript has a way where you can use symbols to represent values using __*variables*__, the special `var` keyword, and the special __*assignment*__ operator `=`:
@@ -169,6 +180,13 @@ if (age < required) {
 }
 ```
 
+#### TODO
+
+* Create a variable and assign a number to it
+* Create a second variable and assign a different number to it
+* Create a third variable and assign the sum of the first two numbers to it
+* `console.log` the third variable
+
 ### Functions
 
 Lastly, we just need to wrap the code in a __*function*__ so it can be reused. A function is just a block of reusable code that takes __*parameters*__ as inputs (just a fancy name for variables really) and __*returns*__ a value. You can give a function a name so it's easy to __*call*__ - or invoke - later in your code by writing the function name followed by parenthesis containing the parameters (if there are any). That's a lot of information, so lets take a look at a super simple function:
@@ -184,12 +202,20 @@ add(2, 4); // 6
 In the above example the function is named "add" and has two parameters: "x" and "y". The function returns the sum of "x" and "y". To call it, we just write "add" with parenthesis around the values we want to input into the function. Here's an even simpler example:
 
 ``` JavaScript
+// 'Declaring' the function
 function six() {
   return 6;
 }
 
-six(); // 6 - This function is pretty useless
+// 'Calling' the function
+six();
 ```
+
+#### TODO
+
+* Create a function that has one parameter called name
+* Make the function `console.log` the parameter
+* Call your new function with your name as a string
 
 ### Old Enough, Completed
 
@@ -265,6 +291,10 @@ Let's talk out that's going on in the above example:
 * When we reach the end of the block, we loop back to the top of the loop
 * We check if 3 is less than 3 - nope!
 * The loop ends
+
+#### TODO
+
+* Change the `while` loop so that it counts by two until it gets to 10
 
 Loops are what make programming so great! Computers can just keep looping over and over without a care in the world. What would be really tedious for people is the norm for computers. Let's see how this might work with out coin program:
 
@@ -475,6 +505,12 @@ for (var i = 2; i <= 6; i += 2) {
 * We increment "i" by 2 (so "i" is now 8)
 * We check if `8 <= 6` - nope!
 * The loop ends
+
+#### TODO
+
+* Write a `for` loop that creates a variable named 'j' which will hold the number 2
+* Have the `for` loop continue until 'j' equals 10 and increment 'j' by 2 each iteration
+* Each loop, have the `for` loop `console.log(j * j)`
 
 Cool beans! Lets rewrite the `while` loop into a `for` loop for our little kiddo:
 
