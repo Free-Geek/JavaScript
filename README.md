@@ -94,6 +94,9 @@ Where do you start? Well, math is an important part of programming so JavaScript
 
 __Warning:__ `==` is equals, not `=`. You need both equal signs!
 
+__Note: Concerning the `=` sign and JavaScript__
+JavaScript has values that are *truthy* and *falsey*.  The `==` symbol will equate based on that.  `"1" == 1` will be *truthy*.  To get strongly check equality, you must use `===`.  `"1" === 1` is false, whereas `1 === 1` is true.  On the note of *truthy* and *falsey*, `1`, `"some string"`, `true` are all *truthy*, and `0`, `""`, `false`, `null`, `undefined` are all *falsey*.
+
 So with this knowledge, you have a pretty good base! Let's run our first real program:
 
 ``` javascript
